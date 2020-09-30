@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>script解决跨域</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script>
+        //回调函数
+        function showData (result) {
+            //json对象转成字符串
+            var data = JSON.stringify(result);
+            $("#text").val(data);
+        }
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                // 向头部输入一个脚本，该脚本发起一个跨域请求
+                $("head").append("<script src='https://counter.transworld.xyz/counter.php'><\/script>");
+            });
+        });
+    </script>
+</head>
+<body>
+<input id="btn" type="button" value="跨域请求数据" />
+<textarea id="text" style="width: 200px; height: 100px;"></textarea>
+</body>
+</html>
